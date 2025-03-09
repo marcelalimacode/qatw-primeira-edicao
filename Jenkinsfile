@@ -1,7 +1,7 @@
 pipeline {
     agent  {
         docker {
-            image 'mcr.microsoft.com/playwright:v1.51.0-noble'
+            image 'mcr.microsoft.com/playwright:v1.50.1-noble'
             args '--network qatw-primeira-edicao_skynet'
         }
 
@@ -13,7 +13,7 @@ pipeline {
                 sh 'npm install'
             }
         }
-         stage('Testes Unitários') {
+         stage('E2E Tests') {
             steps {
                 sh 'npx playwright test'
             }
